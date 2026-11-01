@@ -39,22 +39,58 @@ export async function syncTaskToCloud(task: {
   if (!supabase || !isSupabaseConfigured) return;
 
   try {
+    const noteText = task.userPersonalNote || task.notes || '';
+    
+    // Attempt upsert with full payload
     const { error } = await supabase.from('tasks').upsert(
       {
         id: task.id,
         category: task.category,
         title: task.title,
         status: task.completed ? 'Completed' : 'Planned',
-        notes: task.userPersonalNote || task.notes,
+        directive_notes: noteText,
+        notes: noteText,
+        user_personal_note: task.userPersonalNote || '',
         planned_date: task.dateAssigned,
       },
       { onConflict: 'id' }
     );
 
     if (error) {
-      console.warn('Supabase cloud sync notice:', error.message);
+      // Fallback: minimal columns
+      const fallback = await supabase.from('tasks').upsert(
+        {
+          id: task.id,
+          category: task.category,
+          title: task.title,
+          status: task.completed ? 'Completed' : 'Planned',
+          planned_date: task.dateAssigned,
+        },
+        { onConflict: 'id' }
+      );
+      if (fallback.error) {
+        console.warn('Supabase cloud sync notice:', fallback.error.message);
+      }
     }
   } catch (err) {
     console.warn('Supabase sync skipped (offline or network issue):', err);
+  }
+}
+
+/**
+ * Pull all tasks from Supabase cloud database
+ */
+export async function fetchTasksFromCloud() {
+  if (!supabase || !isSupabaseConfigured) return [];
+  try {
+    const { data, error } = await supabase.from('tasks').select('*');
+    if (error) {
+      console.warn('Error fetching tasks from cloud:', error.message);
+      return [];
+    }
+    return data || [];
+  } catch (err) {
+    console.warn('Cloud fetch offline:', err);
+    return [];
   }
 }
