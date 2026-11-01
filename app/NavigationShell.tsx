@@ -54,7 +54,7 @@ export default function NavigationShell({ children }: { children: React.ReactNod
                     Mostafa Mohamed
                   </h1>
                   <span className="text-[10px] text-[#A6D8FF] block font-medium truncate">
-                    Learning OS • 180 Days
+                    Learning OS • 190 Days
                   </span>
                 </div>
               )}

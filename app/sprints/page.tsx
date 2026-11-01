@@ -97,7 +97,7 @@ export default function DailyExecutionCenter() {
   };
 
   const handleNextDay = () => {
-    if (activeDayNumber < 180) {
+    if (activeDayNumber < allCurriculum.length) {
       setActiveDayNumber((prev) => prev + 1);
     }
   };
@@ -140,8 +140,8 @@ export default function DailyExecutionCenter() {
   };
 
   const handleCarryOverUnfinished = () => {
-    if (activeDayNumber >= 180) {
-      alert('Reached the end of the 180-day master curriculum!');
+    if (activeDayNumber >= allCurriculum.length) {
+      alert(`Reached the end of the ${allCurriculum.length}-day master curriculum!`);
       return;
     }
     const nextPlan = getPlanForDayNumber(activeDayNumber + 1);
@@ -272,7 +272,7 @@ export default function DailyExecutionCenter() {
               Month {currentDayPlan.month} • Sprint {currentDayPlan.sprint.toString().padStart(2, '0')}
             </span>
             <span className="text-xs font-semibold text-slate-500">
-              Active Day: <strong className="text-[#002050]">Day {currentDayPlan.dayNumber} of 180</strong> ({currentDayPlan.dayOfWeek}, {currentDayPlan.date})
+              Active Day: <strong className="text-[#002050]">Day {currentDayPlan.dayNumber} of {allCurriculum.length}</strong> ({currentDayPlan.dayOfWeek}, {currentDayPlan.date})
             </span>
             {currentDayPlan.isSpacedRepetitionDay && (
               <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-800 border border-purple-200 flex items-center gap-1">
@@ -390,15 +390,15 @@ export default function DailyExecutionCenter() {
             <input
               type="number"
               min={1}
-              max={180}
+              max={allCurriculum.length}
               value={activeDayNumber}
               onChange={(e) => {
                 const val = parseInt(e.target.value);
-                if (val >= 1 && val <= 180) setActiveDayNumber(val);
+                if (val >= 1 && val <= allCurriculum.length) setActiveDayNumber(val);
               }}
               className="w-16 p-1.5 rounded border border-slate-300 text-xs font-bold text-center text-[#002050] bg-white focus:outline-none focus:ring-2 focus:ring-[#0078D4]"
             />
-            <span className="text-xs text-slate-400 font-semibold">/ 180</span>
+            <span className="text-xs text-slate-400 font-semibold">/ {allCurriculum.length}</span>
           </div>
         </div>
 
@@ -470,7 +470,7 @@ export default function DailyExecutionCenter() {
           <div className="flex items-center gap-1">
             <button
               onClick={handleNextDay}
-              disabled={activeDayNumber === 180}
+              disabled={activeDayNumber === allCurriculum.length}
               className="p-1 rounded hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center gap-1 text-xs font-bold text-slate-700"
             >
               Next Day
@@ -486,7 +486,7 @@ export default function DailyExecutionCenter() {
           <div className="space-y-2 flex-1">
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-2.5 py-0.5 rounded text-[10px] font-bold bg-[#50E6FF]/20 text-[#50E6FF] border border-[#50E6FF]/30 uppercase tracking-wider">
-                Day {currentDayPlan.dayNumber} / 180 • {currentDayPlan.dayOfWeek}
+                Day {currentDayPlan.dayNumber} / {allCurriculum.length} • {currentDayPlan.dayOfWeek}
               </span>
               <span className="text-xs text-slate-200 font-semibold">
                 Theme: <strong>{currentDayPlan.theme}</strong>
@@ -535,9 +535,9 @@ export default function DailyExecutionCenter() {
             <div className="text-right border-l border-white/20 pl-4 space-y-0.5">
               <span className="text-[10px] text-slate-300 block uppercase font-bold">Total Pace</span>
               <span className="text-lg font-black text-[#50E6FF]">
-                {Math.round((activeDayNumber / 180) * 100)}%
+                {Math.round((activeDayNumber / allCurriculum.length) * 100)}%
               </span>
-              <span className="text-[10px] text-slate-300 block">Of 180 Days</span>
+              <span className="text-[10px] text-slate-300 block">Of {allCurriculum.length} Days</span>
             </div>
           </div>
         </div>
@@ -779,15 +779,15 @@ export default function DailyExecutionCenter() {
       )}
 
       {viewMode === 'matrix' && (
-        /* 180-Day Grid Matrix (Bird's Eye View) */
+        /* 190-Day Grid Matrix (Bird's Eye View) */
         <div className="fluent-card p-6 space-y-6">
           <div className="border-b border-slate-100 pb-4">
             <h4 className="text-base font-bold text-[#002050] flex items-center gap-2">
               <Compass className="w-5 h-5 text-[#0078D4]" />
-              Full 180-Day Master Curriculum Matrix (6 Months)
+              Full {allCurriculum.length}-Day Master Curriculum Matrix (6 Months)
             </h4>
-            <p className="text-xs text-slate-500 mt-1">
-              Click any box to immediately navigate and inspect that day&apos;s tasks and study focus.
+            <p className="text-xs text-slate-500 mt-0.5">
+              Click any box to immediately navigate and inspect that day&apos;s English and technical tasks.
             </p>
           </div>
 
