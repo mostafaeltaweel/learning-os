@@ -1,0 +1,38 @@
+{
+  "name": "mostafa-practice-plan",
+  "version": "1.0.0",
+  "description": "Mostafa Mohamed Practice Plan - Learning System",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test:parser": "ts-node validate/testParser.ts",
+    "test:all": "ts-node validate/testAll.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "autoprefixer": "^10.6.2",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.10",
+    "exceljs": "^4.4.0",
+    "lucide-react": "^1.66.0",
+    "next": "^14.2.35",
+    "postcss": "^8.5.32",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^3.10.1",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^3.4.19",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.2"
+  }
+}

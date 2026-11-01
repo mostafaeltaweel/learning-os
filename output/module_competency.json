@@ -1,0 +1,44 @@
+[
+  {
+    "id": "52ffcb6b-eb4a-4a27-b5de-768802ee1e90",
+    "module_name": "SQL",
+    "current_level": "Intermediate",
+    "target_level": "Job Ready",
+    "progress": 55
+  },
+  {
+    "id": "cf344d2e-a113-4065-8ef4-eae8cc0f2cb1",
+    "module_name": "Power BI",
+    "current_level": "Beginner",
+    "target_level": "Job Ready",
+    "progress": 40
+  },
+  {
+    "id": "c597d7cb-2308-48ba-b0c6-fda4c693d7cf",
+    "module_name": "English",
+    "current_level": "Intermediate",
+    "target_level": "Job Ready",
+    "progress": 50
+  },
+  {
+    "id": "77395fc4-cedb-44a6-8351-a4062041ba58",
+    "module_name": "Python",
+    "current_level": "Not Started",
+    "target_level": "Job Ready",
+    "progress": 20
+  },
+  {
+    "id": "714f84ad-3c41-469e-99be-4d9e8cc135d5",
+    "module_name": "Statistics",
+    "current_level": "Advanced",
+    "target_level": "Job Ready",
+    "progress": 72
+  },
+  {
+    "id": "1db3ed65-8bc0-4411-a74b-16a6917f1b91",
+    "module_name": "Agentic AI",
+    "current_level": "Not Started",
+    "target_level": "Job Ready",
+    "progress": 15
+  }
+]

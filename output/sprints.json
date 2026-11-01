@@ -1,0 +1,242 @@
+[
+  {
+    "id": "e02fe161-f3d8-40df-b73c-fef678152dff",
+    "sprint_number": 1,
+    "sprint_name": "Sprint 1",
+    "goal": "Week 1 learning goals",
+    "start_date": "2025-11-01",
+    "end_date": "2025-11-07",
+    "progress": 0,
+    "status": "In Progress"
+  },
+  {
+    "id": "5c769de1-ff6d-4211-b7b1-109745107e8e",
+    "sprint_number": 2,
+    "sprint_name": "Sprint 2",
+    "goal": "Week 2 learning goals",
+    "start_date": "2025-11-08",
+    "end_date": "2025-11-14",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "6e544d95-98d2-4f7d-8dc4-68da4ffadadb",
+    "sprint_number": 3,
+    "sprint_name": "Sprint 3",
+    "goal": "Week 3 learning goals",
+    "start_date": "2025-11-15",
+    "end_date": "2025-11-21",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "ae76f3c1-c261-4ebb-a713-26eeb50bb15b",
+    "sprint_number": 4,
+    "sprint_name": "Sprint 4",
+    "goal": "Week 4 learning goals",
+    "start_date": "2025-11-22",
+    "end_date": "2025-11-28",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "aa7ef521-6409-4284-afe3-7084e8372359",
+    "sprint_number": 5,
+    "sprint_name": "Sprint 5",
+    "goal": "Week 5 learning goals",
+    "start_date": "2025-11-29",
+    "end_date": "2025-12-05",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "0cde8c2b-6591-46ed-866d-65663587fa00",
+    "sprint_number": 6,
+    "sprint_name": "Sprint 6",
+    "goal": "Week 6 learning goals",
+    "start_date": "2025-12-06",
+    "end_date": "2025-12-12",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "9bbab376-d188-402d-8aa0-ec8ea680f97b",
+    "sprint_number": 7,
+    "sprint_name": "Sprint 7",
+    "goal": "Week 7 learning goals",
+    "start_date": "2025-12-13",
+    "end_date": "2025-12-19",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "822b8359-2e70-4ae7-b199-fa324b722276",
+    "sprint_number": 8,
+    "sprint_name": "Sprint 8",
+    "goal": "Week 8 learning goals",
+    "start_date": "2025-12-20",
+    "end_date": "2025-12-26",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "b2516453-5c7d-445e-b4d3-a808ae0a4e39",
+    "sprint_number": 9,
+    "sprint_name": "Sprint 9",
+    "goal": "Week 9 learning goals",
+    "start_date": "2025-12-27",
+    "end_date": "2026-01-02",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "a3d16b82-73c6-4dca-bb80-00688fb6ecf6",
+    "sprint_number": 10,
+    "sprint_name": "Sprint 10",
+    "goal": "Week 10 learning goals",
+    "start_date": "2026-01-03",
+    "end_date": "2026-01-09",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "33c197ee-d381-4c47-9fda-74664781fef5",
+    "sprint_number": 11,
+    "sprint_name": "Sprint 11",
+    "goal": "Week 11 learning goals",
+    "start_date": "2026-01-10",
+    "end_date": "2026-01-16",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "0238143e-4fda-49b4-8908-ff061323a8a1",
+    "sprint_number": 12,
+    "sprint_name": "Sprint 12",
+    "goal": "Week 12 learning goals",
+    "start_date": "2026-01-17",
+    "end_date": "2026-01-23",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "94e9390c-a20c-4f1a-8546-ccd9cfbfc2cd",
+    "sprint_number": 13,
+    "sprint_name": "Sprint 13",
+    "goal": "Week 13 learning goals",
+    "start_date": "2026-01-24",
+    "end_date": "2026-01-30",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "ae7953c0-811e-4c2e-95f2-199ff27d4f3d",
+    "sprint_number": 14,
+    "sprint_name": "Sprint 14",
+    "goal": "Week 14 learning goals",
+    "start_date": "2026-01-31",
+    "end_date": "2026-02-06",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "7730beb2-b57b-4629-a5ec-747f3565a00e",
+    "sprint_number": 15,
+    "sprint_name": "Sprint 15",
+    "goal": "Week 15 learning goals",
+    "start_date": "2026-02-07",
+    "end_date": "2026-02-13",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "a498e260-0ca8-4b63-a959-b8b5e777665f",
+    "sprint_number": 16,
+    "sprint_name": "Sprint 16",
+    "goal": "Week 16 learning goals",
+    "start_date": "2026-02-14",
+    "end_date": "2026-02-20",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "e2affc38-2952-4a02-979f-ed0193f88707",
+    "sprint_number": 17,
+    "sprint_name": "Sprint 17",
+    "goal": "Week 17 learning goals",
+    "start_date": "2026-02-21",
+    "end_date": "2026-02-27",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "8581d287-f7df-41a8-a771-f8de14e1abe2",
+    "sprint_number": 18,
+    "sprint_name": "Sprint 18",
+    "goal": "Week 18 learning goals",
+    "start_date": "2026-02-28",
+    "end_date": "2026-03-06",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "b59ac0a4-5b9f-4814-aa28-aa4e03d15d17",
+    "sprint_number": 19,
+    "sprint_name": "Sprint 19",
+    "goal": "Week 19 learning goals",
+    "start_date": "2026-03-07",
+    "end_date": "2026-03-13",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "c57e1504-765f-47ef-ab88-f5218bf78693",
+    "sprint_number": 20,
+    "sprint_name": "Sprint 20",
+    "goal": "Week 20 learning goals",
+    "start_date": "2026-03-14",
+    "end_date": "2026-03-20",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "b6203f5b-29ac-46f7-bad4-5e4c0ff0b0c4",
+    "sprint_number": 21,
+    "sprint_name": "Sprint 21",
+    "goal": "Week 21 learning goals",
+    "start_date": "2026-03-21",
+    "end_date": "2026-03-27",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "f24d4240-3b79-42db-aa7b-aef6a85c2023",
+    "sprint_number": 22,
+    "sprint_name": "Sprint 22",
+    "goal": "Week 22 learning goals",
+    "start_date": "2026-03-28",
+    "end_date": "2026-04-03",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "65522183-d3e3-4f1f-ab07-019348b45df4",
+    "sprint_number": 23,
+    "sprint_name": "Sprint 23",
+    "goal": "Week 23 learning goals",
+    "start_date": "2026-04-04",
+    "end_date": "2026-04-10",
+    "progress": 0,
+    "status": "Planned"
+  },
+  {
+    "id": "8e647301-1ff8-4ecc-8812-371acb4e6782",
+    "sprint_number": 24,
+    "sprint_name": "Sprint 24",
+    "goal": "Week 24 learning goals",
+    "start_date": "2026-04-11",
+    "end_date": "2026-04-17",
+    "progress": 0,
+    "status": "Planned"
+  }
+]

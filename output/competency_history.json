@@ -1,0 +1,51 @@
+[
+  {
+    "id": "442e888d-7e3d-46bd-8c9f-add5c3d06df6",
+    "module_name": "SQL",
+    "score": 35,
+    "evaluation_date": "2026-11-01",
+    "notes": "Initial assessment for SQL"
+  },
+  {
+    "id": "9309de9e-00e2-4bf3-b72c-c5e46b637a8a",
+    "module_name": "Power BI",
+    "score": 40,
+    "evaluation_date": "2026-11-01",
+    "notes": "Initial assessment for Power BI"
+  },
+  {
+    "id": "442d5e90-ed74-4170-b7a3-a32732c347a5",
+    "module_name": "English",
+    "score": 50,
+    "evaluation_date": "2026-11-01",
+    "notes": "Initial assessment for English"
+  },
+  {
+    "id": "ab2197f2-0d02-43aa-92b7-6d038bffed5a",
+    "module_name": "Python",
+    "score": 20,
+    "evaluation_date": "2026-11-01",
+    "notes": "Initial assessment for Python"
+  },
+  {
+    "id": "dcf4813f-5cca-4189-bfe4-666947f2432b",
+    "module_name": "Statistics",
+    "score": 72,
+    "evaluation_date": "2026-11-01",
+    "notes": "Initial assessment for Statistics"
+  },
+  {
+    "id": "0392bd01-5d73-4f7d-a9f6-9dad6c6e5b0c",
+    "module_name": "Agentic AI",
+    "score": 15,
+    "evaluation_date": "2026-11-01",
+    "notes": "Initial assessment for Agentic AI"
+  },
+  {
+    "id": "6e5f82c2-bf7b-4253-9afb-261e42a07da0",
+    "module_name": "SQL",
+    "score": 55,
+    "evaluation_date": "2026-11-01",
+    "notes": "Progress after Week 2"
+  }
+]

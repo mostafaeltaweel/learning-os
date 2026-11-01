@@ -1,0 +1,8 @@
+[
+  { "id": "PRJ-M1", "month": 1, "title": "Retail Sales & Inventory SQL Warehouse", "domain": "E-Commerce / Retail", "tech": "SQL Server, Schema Design", "status": "Completed", "impact": "Clean database schema with 10 complex KPIs" },
+  { "id": "PRJ-M2", "month": 2, "title": "Executive Sales & Finance Power BI Dashboard", "domain": "Business Intelligence", "tech": "Power BI, DAX, Storytelling", "status": "In Progress", "impact": "Interactive multi-page board for C-suite" },
+  { "id": "PRJ-M3", "month": 3, "title": "Customer Churn & Retention Statistical EDA", "domain": "Telecom / Subscription", "tech": "Python (Pandas, Seaborn), Stats", "status": "Planned", "impact": "Cohort retention curves & churn drivers" },
+  { "id": "PRJ-M4", "month": 4, "title": "End-to-End Automated ETL & Analytics Pipeline", "domain": "Data Engineering", "tech": "Python, PostgreSQL, Fastify", "status": "Planned", "impact": "Daily automated data refresh pipeline" },
+  { "id": "PRJ-M5", "month": 5, "title": "Healthcare Patient Attendance Analytics", "domain": "Healthcare Operations", "tech": "Power BI, SQL, Python", "status": "Planned", "impact": "No-show prediction & resource optimization" },
+  { "id": "PRJ-M6", "month": 6, "title": "Enterprise BI Capstone & Agentic AI Assistant", "domain": "BI + Agentic AI", "tech": "Power BI, LLM / LangChain, SQL", "status": "Planned", "impact": "Natural language Q&A over enterprise datasets" }
+]

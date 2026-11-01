@@ -1,0 +1,269 @@
+{
+  "sheets": [
+    {
+      "name": "Daily Plan",
+      "columnCount": 31,
+      "columns": [
+        "Days in",
+        "Days",
+        "Steps",
+        "Steps",
+        "Steps",
+        "Steps",
+        "Steps",
+        "Steps",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+      ],
+      "sampleRows": [
+        {
+          "Days in": null,
+          "Days": 2,
+          "Steps": "You need to recap on your session’s notes or material if there is any.",
+          "null": null
+        },
+        {
+          "Days in": null,
+          "Days": 1,
+          "Steps": {
+            "richText": [
+              {
+                "font": {
+                  "name": "Arial Rounded",
+                  "color": {
+                    "argb": "FF000000"
+                  },
+                  "size": 14
+                },
+                "text": "4- Then, try to write a short story about yourself with those three new words, where you can also apply the new grammar lesson, and check the correction in ChatGPT.\n\n"
+              },
+              {
+                "font": {
+                  "name": "Arial Rounded",
+                  "bold": true,
+                  "color": {
+                    "argb": "FF000000"
+                  },
+                  "size": 14
+                },
+                "text": "Prompt: \"Here is my short story using these words [list words] and applying this grammar lesson [write lesson]. Please correct it and give me feedback on grammar, vocabulary, and style.\""
+              }
+            ]
+          },
+          "null": null
+        },
+        {
+          "Days in": null,
+          "Days": 7,
+          "Steps": "4- You will have a writing speed test on Speed Typing Online to refresh your memory with the spelling of the words, and it will last for a minute.",
+          "null": null
+        },
+        {
+          "Days in": null,
+          "Days": 6,
+          "Steps": null,
+          "null": null
+        },
+        {
+          "Days in": null,
+          "Days": null,
+          "Steps": null,
+          "null": null
+        }
+      ]
+    },
+    {
+      "name": "Resources",
+      "columnCount": 12,
+      "columns": [
+        "Skill Area",
+        "Resource Name",
+        "Link / Access",
+        "How to Use",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+      ],
+      "sampleRows": [
+        {
+          "Skill Area": null,
+          "Resource Name": "Grammar",
+          "Link / Access": "ZAmericanEnglish YouTube Channel",
+          "How to Use": {
+            "text": {
+              "richText": [
+                {
+                  "font": {
+                    "name": "Arial Rounded",
+                    "color": {
+                      "argb": "FF1155CC"
+                    },
+                    "size": 14,
+                    "underline": true
+                  },
+                  "text": "https://www.youtube.com/watch?v=jXgOjgokSgI&list=PLp22-4PivYmLBmV2wctgqyyRlIs1MhmNr"
+                },
+                {
+                  "font": {
+                    "name": "Arial Rounded",
+                    "size": 14
+                  },
+                  "text": " "
+                }
+              ]
+            },
+            "hyperlink": "https://www.youtube.com/watch?v=jXgOjgokSgI&list=PLp22-4PivYmLBmV2wctgqyyRlIs1MhmNr"
+          },
+          "null": null
+        },
+        {
+          "Skill Area": null,
+          "Resource Name": "Grammar",
+          "Link / Access": "British Council",
+          "How to Use": {
+            "text": "https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar",
+            "hyperlink": "https://learnenglish.britishcouncil.org/grammar/a1-a2-grammar"
+          },
+          "null": null
+        },
+        {
+          "Skill Area": null,
+          "Resource Name": "Vocabulary Building ",
+          "Link / Access": "Youglish",
+          "How to Use": {
+            "text": {
+              "richText": [
+                {
+                  "font": {
+                    "name": "Arial Rounded",
+                    "color": {
+                      "argb": "FF1155CC"
+                    },
+                    "size": 14,
+                    "underline": true
+                  },
+                  "text": "https://youglish.com/"
+                },
+                {
+                  "font": {
+                    "name": "Arial Rounded",
+                    "color": {
+                      "argb": "FF1155CF"
+                    },
+                    "size": 14
+                  },
+                  "text": " "
+                }
+              ]
+            },
+            "hyperlink": "https://youglish.com/"
+          },
+          "null": null
+        },
+        {
+          "Skill Area": null,
+          "Resource Name": "Reading",
+          "Link / Access": "Istoria App",
+          "How to Use": "--",
+          "null": null
+        },
+        {
+          "Skill Area": null,
+          "Resource Name": "Reading",
+          "Link / Access": "The Little Prince - English AudioBook",
+          "How to Use": {
+            "text": "https://youtu.be/Uyx5Lzn1yAs?si=2wbRGfCbXcbVb-Fs ",
+            "hyperlink": "https://youtu.be/Uyx5Lzn1yAs?si=2wbRGfCbXcbVb-Fs"
+          },
+          "null": null
+        }
+      ]
+    },
+    {
+      "name": "Daily Targets",
+      "columnCount": 12,
+      "columns": [
+        "Your Journal!",
+        "Day",
+        "Tasks Completed",
+        "New Words Learned",
+        "Reflection",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null",
+        "null"
+      ],
+      "sampleRows": [
+        {
+          "Your Journal!": null,
+          "Day": "2025-11-01T00:00:00.000Z",
+          "Tasks Completed": true,
+          "New Words Learned": "1- \nExample:\n2- \nExample:\n\n3- \nExample:\n\nYour story:\n",
+          "Reflection": null,
+          "null": null
+        },
+        {
+          "Your Journal!": null,
+          "Day": "2025-11-02T00:00:00.000Z",
+          "Tasks Completed": false,
+          "New Words Learned": "1- \nExample:\n2- \nExample:\n\n3- \nExample:\n\nYour story:\n",
+          "Reflection": null,
+          "null": null
+        },
+        {
+          "Your Journal!": null,
+          "Day": "2025-11-03T00:00:00.000Z",
+          "Tasks Completed": false,
+          "New Words Learned": "1- \nExample:\n2- \nExample:\n\n3- \nExample:\n\nYour story:\n",
+          "Reflection": null,
+          "null": null
+        },
+        {
+          "Your Journal!": null,
+          "Day": "2025-11-04T00:00:00.000Z",
+          "Tasks Completed": false,
+          "New Words Learned": "1- \nExample:\n2- \nExample:\n\n3- \nExample:\n\nYour story:\n",
+          "Reflection": null,
+          "null": null
+        },
+        {
+          "Your Journal!": null,
+          "Day": "2025-11-05T00:00:00.000Z",
+          "Tasks Completed": false,
+          "New Words Learned": "1- \nExample:\n2- \nExample:\n\n3- \nExample:\n\nYour story:\n",
+          "Reflection": null,
+          "null": null
+        }
+      ]
+    }
+  ]
+}

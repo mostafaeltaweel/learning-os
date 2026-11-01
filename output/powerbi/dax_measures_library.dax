@@ -1,0 +1,174 @@
+/* ======================================================================================
+   MOSTAFA MOHAMED PRACTICE PLAN — POWER BI DAX MEASURES LIBRARY (PHASE 3A)
+   Microsoft Fluent Design Architecture
+   ====================================================================================== */
+
+-- ======================================================================================
+-- 1️⃣ CORE METRICS & TIME INTELLIGENCE
+-- ======================================================================================
+
+Total Tasks = 
+COUNTROWS('Fact_Tasks')
+
+Completed Tasks = 
+CALCULATE(
+    COUNTROWS('Fact_Tasks'),
+    'Fact_Tasks'[Status] = "Completed"
+)
+
+Planned Tasks = 
+CALCULATE(
+    COUNTROWS('Fact_Tasks'),
+    'Fact_Tasks'[Status] = "Planned"
+)
+
+Task Completion % = 
+DIVIDE([Completed Tasks], [Total Tasks], 0)
+
+Total Planned Hours = 
+SUM('Fact_Tasks'[Planned_Hours])
+
+Total Completed Hours = 
+SUM('Fact_Tasks'[Completed_Hours])
+
+Hour Burn Rate % = 
+DIVIDE([Total Completed Hours], [Total Planned Hours], 0)
+
+-- ======================================================================================
+-- 2️⃣ PAGE 1: EXECUTIVE OVERVIEW — JOB READINESS SCORE
+-- ======================================================================================
+
+Job Readiness Index = 
+-- Weighted calculation reflecting Market Job Requirements:
+-- SQL (25%) + Power BI (25%) + English (15%) + Python (15%) + Statistics (10%) + AI (5%) + Interview (5%)
+VAR SQL_Score = CALCULATE(MAX('Dim_CompetencyMatrix'[Progress]), 'Dim_CompetencyMatrix'[Module_Name] = "SQL") * 0.25
+VAR PBI_Score = CALCULATE(MAX('Dim_CompetencyMatrix'[Progress]), 'Dim_CompetencyMatrix'[Module_Name] = "Power BI") * 0.25
+VAR ENG_Score = CALCULATE(MAX('Dim_CompetencyMatrix'[Progress]), 'Dim_CompetencyMatrix'[Module_Name] = "English") * 0.15
+VAR PY_Score  = CALCULATE(MAX('Dim_CompetencyMatrix'[Progress]), 'Dim_CompetencyMatrix'[Module_Name] = "Python") * 0.15
+VAR STAT_Score= CALCULATE(MAX('Dim_CompetencyMatrix'[Progress]), 'Dim_CompetencyMatrix'[Module_Name] = "Statistics") * 0.10
+VAR AI_Score  = CALCULATE(MAX('Dim_CompetencyMatrix'[Progress]), 'Dim_CompetencyMatrix'[Module_Name] = "Agentic AI") * 0.05
+VAR INT_Score = CALCULATE(MAX('Dim_CompetencyMatrix'[Progress]), 'Dim_CompetencyMatrix'[Module_Name] = "Interview Skills") * 0.05
+
+VAR TotalWeighted = SQL_Score + PBI_Score + ENG_Score + PY_Score + STAT_Score + AI_Score + INT_Score
+RETURN
+ROUND(TotalWeighted, 1)
+
+Job Readiness Status = 
+SWITCH(
+    TRUE(),
+    [Job Readiness Index] >= 85, "Job Ready 🎯",
+    [Job Readiness Index] >= 70, "Advanced Interview Stage 🚀",
+    [Job Readiness Index] >= 50, "Core Skills Solid 📈",
+    "Foundation Building 🏗️"
+)
+
+Current Active Sprint = 
+CALCULATE(
+    MAX('Dim_Sprints'[Sprint_Name]),
+    'Dim_Sprints'[Status] = "In Progress"
+)
+
+Current Milestone = 
+CALCULATE(
+    MAX('Dim_Milestones'[Title]),
+    'Dim_Milestones'[Status] = "In Progress"
+)
+
+Days Remaining in Program = 
+VAR MaxProgramDate = CALCULATE(MAX('Fact_Tasks'[Planned_Date]), ALL('Fact_Tasks'))
+VAR TodayDate = TODAY()
+RETURN
+IF(MaxProgramDate >= TodayDate, INT(MaxProgramDate - TodayDate), 0)
+
+-- ======================================================================================
+-- 3️⃣ PAGE 3: SPRINT PERFORMANCE & BURNDOWN
+-- ======================================================================================
+
+Sprint Progress % = 
+VAR ActiveSprintTasks = CALCULATE(COUNTROWS('Fact_Tasks'), 'Fact_Tasks'[Sprint_ID] = SELECTEDVALUE('Dim_Sprints'[Sprint_ID]))
+VAR CompletedInSprint = CALCULATE(COUNTROWS('Fact_Tasks'), 'Fact_Tasks'[Sprint_ID] = SELECTEDVALUE('Dim_Sprints'[Sprint_ID]), 'Fact_Tasks'[Status] = "Completed")
+RETURN
+DIVIDE(CompletedInSprint, ActiveSprintTasks, 0)
+
+Planned Cumulative Tasks = 
+CALCULATE(
+    [Total Tasks],
+    FILTER(
+        ALLSELECTED('Dim_Date'[Date]),
+        'Dim_Date'[Date] <= MAX('Dim_Date'[Date])
+    )
+)
+
+Actual Cumulative Completed = 
+CALCULATE(
+    [Completed Tasks],
+    FILTER(
+        ALLSELECTED('Dim_Date'[Date]),
+        'Dim_Date'[Date] <= MAX('Dim_Date'[Date])
+    )
+)
+
+-- ======================================================================================
+-- 4️⃣ PAGE 4: COMPETENCY RADAR & GROWTH VELOCITY
+-- ======================================================================================
+
+Competency Gap to Job Ready = 
+VAR Target = 90 -- Job ready threshold
+VAR Current = SELECTEDVALUE('Dim_CompetencyMatrix'[Progress], 0)
+RETURN
+MAX(0, Target - Current)
+
+Competency Level Badge = 
+SWITCH(
+    TRUE(),
+    SELECTEDVALUE('Dim_CompetencyMatrix'[Progress]) >= 90, "Job Ready",
+    SELECTEDVALUE('Dim_CompetencyMatrix'[Progress]) >= 70, "Advanced",
+    SELECTEDVALUE('Dim_CompetencyMatrix'[Progress]) >= 50, "Intermediate",
+    SELECTEDVALUE('Dim_CompetencyMatrix'[Progress]) >= 30, "Beginner",
+    "Not Started"
+)
+
+-- ======================================================================================
+-- 5️⃣ PAGE 5: ENGLISH IMMERSION & JOURNAL PROGRESS
+-- ======================================================================================
+
+Cumulative Vocabulary Learned = 
+SUM('Fact_DailyJournal'[Vocabulary_Count])
+
+Total Speaking Minutes = 
+SUM('Fact_DailyJournal'[Speaking_Practice_Min])
+
+Daily Adherence Rate % = 
+VAR CompletedDays = CALCULATE(COUNTROWS('Fact_DailyJournal'), 'Fact_DailyJournal'[Tasks_Completed] = "Completed")
+VAR TotalTrackedDays = COUNTROWS('Fact_DailyJournal')
+RETURN
+DIVIDE(CompletedDays, TotalTrackedDays, 0)
+
+-- ======================================================================================
+-- 6️⃣ PAGE 6 & 8: PORTFOLIO & GOOGLE CERTIFICATE
+-- ======================================================================================
+
+Portfolio Completed Projects = 
+CALCULATE(
+    COUNTROWS('Dim_PortfolioProjects'),
+    'Dim_PortfolioProjects'[Status] = "Completed"
+)
+
+Google Certificate Overall Progress % = 
+AVERAGE('Dim_GoogleCertificate'[Completion_Percent])
+
+Google Certificate Courses Completed = 
+CALCULATE(
+    COUNTROWS('Dim_GoogleCertificate'),
+    'Dim_GoogleCertificate'[Status] = "Completed"
+)
+
+-- ======================================================================================
+-- 7️⃣ PAGE 7: CAREER CONVERSION FUNNEL
+-- ======================================================================================
+
+Interview Conversion Rate = 
+VAR Apps = CALCULATE(MAX('Fact_CareerTracking'[Actual_Count]), 'Fact_CareerTracking'[Stage] = "3. Job Applications Sent")
+VAR Interviews = CALCULATE(MAX('Fact_CareerTracking'[Actual_Count]), 'Fact_CareerTracking'[Stage] = "5. Technical BI Interviews")
+RETURN
+DIVIDE(Interviews, Apps, 0)

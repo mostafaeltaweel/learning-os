@@ -1,0 +1,8 @@
+[
+  { "stage": "1. LinkedIn Profile Optimization", "target": 100, "actual": 85, "rate": "85%", "status": "Optimized" },
+  { "stage": "2. Professional Connections", "target": 500, "actual": 210, "rate": "42%", "status": "Growing" },
+  { "stage": "3. Job Applications Sent", "target": 60, "actual": 12, "rate": "20%", "status": "Active" },
+  { "stage": "4. HR / Recruiter Screenings", "target": 15, "actual": 3, "rate": "20%", "status": "In Progress" },
+  { "stage": "5. Technical BI Interviews", "target": 8, "actual": 1, "rate": "12.5%", "status": "Scheduled" },
+  { "stage": "6. Final Job Offers", "target": 2, "actual": 0, "rate": "0%", "status": "Target" }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "c6348b22-b1d5-4a43-ad2c-ec7ea17a8ba3",
+    "month_number": 1,
+    "title": "Month 1",
+    "description": "Foundation: Grammar basics, Reading habit, Vocabulary building",
+    "status": "In Progress"
+  },
+  {
+    "id": "a0ba3270-3260-4722-8753-086e92a5e6fb",
+    "month_number": 2,
+    "title": "Month 2",
+    "description": "Building: Grammar intermediate, Listening practice, Writing sentences",
+    "status": "Planned"
+  },
+  {
+    "id": "fdd3d39f-d317-457c-9614-9c6b232511df",
+    "month_number": 3,
+    "title": "Month 3",
+    "description": "Expanding: Complex grammar, Longer reading, Speaking confidence",
+    "status": "Planned"
+  },
+  {
+    "id": "05c3dda2-0db7-4f8c-8a4d-2de99776299e",
+    "month_number": 4,
+    "title": "Month 4",
+    "description": "Strengthening: Advanced grammar, Fluent reading, Daily speaking",
+    "status": "Planned"
+  },
+  {
+    "id": "edf3526c-35e6-4d4f-9d50-2a00b370c649",
+    "month_number": 5,
+    "title": "Month 5",
+    "description": "Polishing: Professional writing, Presentation skills, Interview prep",
+    "status": "Planned"
+  },
+  {
+    "id": "61ba6c7e-3397-491d-9459-35f2d9a47707",
+    "month_number": 6,
+    "title": "Month 6",
+    "description": "Mastery: Job-ready English, Technical vocabulary, Confident communication",
+    "status": "Planned"
+  }
+]

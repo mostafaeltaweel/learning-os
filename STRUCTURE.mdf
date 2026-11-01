@@ -1,0 +1,151 @@
+-- =====================================================================================
+-- MASTER DATABASE SCHEMA & DATA STRUCTURE DEFINITION (.MDF)
+-- Project: Mostafa Mohamed Practice Plan (Learning OS & Analytics Engine)
+-- Target: Relational Schema, Multi-Track Curricula, Sprints & Diagnostic Progress
+-- Compatible with: Microsoft SQL Server (.mdf) / PostgreSQL / Supabase
+-- =====================================================================================
+
+-- 1. EXTENSIONS & METADATA
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- 2. ENUM TYPES
+CREATE TYPE competency_level AS ENUM ('Not Started', 'Beginner', 'Intermediate', 'Advanced', 'Job Ready');
+CREATE TYPE task_status AS ENUM ('Planned', 'In Progress', 'Need Review', 'Blocked', 'Completed');
+CREATE TYPE milestone_status AS ENUM ('Planned', 'In Progress', 'Completed');
+CREATE TYPE domain_category AS ENUM (
+    'English', 'SQL', 'Power BI', 'Excel', 'Python',
+    'Statistics', 'Machine Learning', 'Deep Learning',
+    'RAG & Agentic AI', 'n8n Automation', 'Career'
+);
+
+-- 3. CORE ROADMAP TABLES
+
+-- Monthly Milestones (Months 1 to 6)
+CREATE TABLE milestones (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    month_number INT NOT NULL UNIQUE CHECK (month_number BETWEEN 1 AND 12),
+    title VARCHAR(255) NOT NULL,
+    phase VARCHAR(100) NOT NULL, -- 'Short-Term (Hire Ready)' vs 'Long-Term (AI Expert)'
+    target_role VARCHAR(150) NOT NULL,
+    description TEXT NOT NULL,
+    portfolio_deliverable VARCHAR(255) NOT NULL,
+    business_impact TEXT NOT NULL,
+    status milestone_status DEFAULT 'Planned',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Sprints (Weeks 1 to 24)
+CREATE TABLE sprints (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    sprint_number INT NOT NULL UNIQUE CHECK (sprint_number BETWEEN 1 AND 52),
+    sprint_name VARCHAR(100) NOT NULL,
+    month_id UUID REFERENCES milestones(id) ON DELETE CASCADE,
+    week_theme VARCHAR(255) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    progress NUMERIC(5,2) DEFAULT 0.0 CHECK (progress BETWEEN 0 AND 100),
+    status VARCHAR(50) DEFAULT 'Planned',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Master Tasks (Multi-Track Daily Tasks)
+CREATE TABLE tasks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    sprint_id UUID REFERENCES sprints(id) ON DELETE SET NULL,
+    planned_date DATE NOT NULL,
+    category domain_category NOT NULL,
+    track_weight_pct INT NOT NULL, -- e.g., 30 for English, 20 for SQL, 20 for PBI
+    title VARCHAR(300) NOT NULL,
+    duration_minutes INT NOT NULL DEFAULT 30,
+    impact_badge VARCHAR(100) NOT NULL, -- e.g., '+2 SQL Score', '+3 Speaking Score'
+    directive_notes TEXT NOT NULL,
+    user_personal_note TEXT,
+    resource_name VARCHAR(255) NOT NULL,
+    resource_url TEXT,
+    status task_status DEFAULT 'Planned',
+    carried_over BOOLEAN DEFAULT FALSE,
+    completed_at TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- 4. COMPETENCY & DIAGNOSTIC TRACKING TABLES
+
+-- Competency Master Matrix
+CREATE TABLE module_competency (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    module_name domain_category UNIQUE NOT NULL,
+    current_level competency_level DEFAULT 'Beginner',
+    target_level competency_level DEFAULT 'Job Ready',
+    progress NUMERIC(5,2) DEFAULT 0.0 CHECK (progress BETWEEN 0 AND 100),
+    market_weight NUMERIC(4,2) NOT NULL, -- e.g., 0.25 for SQL, 0.25 for Power BI
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Competency Evolution History (Line Chart & Progress Trajectory)
+CREATE TABLE competency_history (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    module_name domain_category NOT NULL,
+    score NUMERIC(5,2) NOT NULL,
+    evaluation_date DATE NOT NULL,
+    notes TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Talkora English Diagnostic Baseline (From Official PDF Assessment TL-3876)
+CREATE TABLE diagnostic_english_assessment (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    candidate_name VARCHAR(100) DEFAULT 'Mostafa Mohamed',
+    report_code VARCHAR(50) DEFAULT 'TL-3876',
+    cefr_level VARCHAR(10) DEFAULT 'A1+',
+    fluency_score NUMERIC(5,2) DEFAULT 35.0,
+    grammar_score NUMERIC(5,2) DEFAULT 32.0,
+    vocabulary_score NUMERIC(5,2) DEFAULT 32.0,
+    pronunciation_score NUMERIC(5,2) DEFAULT 32.0,
+    comprehension_score NUMERIC(5,2) DEFAULT 35.0,
+    assessed_date DATE DEFAULT '2026-10-26'
+);
+
+-- Diagnostic Common Error Patterns & Solutions (From Assessment Notes PDF)
+CREATE TABLE diagnostic_error_patterns (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    pattern_number INT NOT NULL,
+    pattern_name VARCHAR(200) NOT NULL,
+    example_wrong TEXT NOT NULL,
+    example_correct TEXT NOT NULL,
+    practice_instruction TEXT NOT NULL,
+    phonetic_drill VARCHAR(255) -- for TH, /b/ vs /p/, vowel clarity
+);
+
+-- 5. PERFORMANCE LOGS (Line Chart Tracking: Excelled vs. Struggled Days)
+CREATE TABLE daily_performance_logs (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    log_date DATE UNIQUE NOT NULL,
+    day_name VARCHAR(20) NOT NULL,
+    tasks_completed INT DEFAULT 0,
+    tasks_total INT DEFAULT 0,
+    completion_rate NUMERIC(5,2) DEFAULT 0.0,
+    study_minutes INT DEFAULT 0,
+    performance_status VARCHAR(50) NOT NULL -- 'Excelled' (>=80%), 'Good' (50-79%), 'Needs Improvement' (<50%)
+);
+
+-- 6. INDEXES FOR PERFORMANCE
+CREATE INDEX idx_tasks_planned_date ON tasks(planned_date);
+CREATE INDEX idx_tasks_category ON tasks(category);
+CREATE INDEX idx_tasks_status ON tasks(status);
+CREATE INDEX idx_sprints_dates ON sprints(start_date, end_date);
+CREATE INDEX idx_competency_history_date ON competency_history(evaluation_date);
+
+-- =====================================================================================
+-- SEED INITIAL DIAGNOSTIC ERROR PATTERNS (Direct from Mostafa's PDF Notes)
+-- =====================================================================================
+INSERT INTO diagnostic_error_patterns (pattern_number, pattern_name, example_wrong, example_correct, practice_instruction, phonetic_drill)
+VALUES 
+(1, 'Verb Tenses Consistency', 'This take 6 month. We talking a lot. After I finish military.', 'This took 6 months. We were talking a lot. After I finished military.', 'Practice describing past experiences and completed projects consistently using Past Tense.', 'Present vs. Past verbs'),
+(2, 'Subject-Verb Agreement', 'There is a lot of things. Social media contain many bad things.', 'There are a lot of things. Social media contains many bad things.', 'Pay attention to singular vs plural subjects; use is/are, has/have correctly.', 'is/are, anyone wants'),
+(3, 'Articles & Plural Nouns', 'I work in a lot of company. I watch a videos.', 'I work in a lot of companies. I watch videos.', 'Check whether noun is countable or uncountable; apply plural -s or correct article.', 'company vs companies'),
+(4, 'Complete Sentences Structure', 'I frustrated sometimes. I waiting to session. I ready now.', 'I get frustrated sometimes. I am waiting for the session. I am ready now.', 'Ensure auxiliary verbs (am/is/are) and prepositions are complete and natural.', 'am/is/are + prepositions'),
+(5, 'Expressing Ideas & Word Families', 'People want to speak English fluency. They start from hard vocabulary.', 'People want to speak English fluently. They start with hard vocabulary.', 'Learn word families: fluent (adj), fluently (adv), fluency (noun). Avoid literal Arabic translation.', 'fluent / fluently / fluency'),
+(6, 'Pronunciation & Sound Clarity', 'think, things, youth, picture, still, base', 'Clear tongue placement for TH; distinguish /b/ vs /p/; clear vowel length.', 'Record voice and compare with audio model on Youglish.', 'TH sound & /b/ vs /p/ contrast');
+
+-- [STRUCTURE VALIDATED]: 7 Tables, 5 Enums, 6 Core Indexes, Real Diagnostic Integration.

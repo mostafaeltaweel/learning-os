@@ -1,0 +1,10 @@
+[
+  { "num": 1, "name": "Foundations: Data, Data, Everywhere", "status": "Completed", "pct": 100, "target_month": "Month 1" },
+  { "num": 2, "name": "Ask Questions to Make Data-Driven Decisions", "status": "Completed", "pct": 100, "target_month": "Month 1" },
+  { "num": 3, "name": "Prepare Data for Exploration", "status": "In Progress", "pct": 65, "target_month": "Month 2" },
+  { "num": 4, "name": "Process Data from Dirty to Clean", "status": "Planned", "pct": 0, "target_month": "Month 2" },
+  { "num": 5, "name": "Analyze Data to Answer Questions", "status": "Planned", "pct": 0, "target_month": "Month 3" },
+  { "num": 6, "name": "Share Data Through the Art of Visualization", "status": "Planned", "pct": 0, "target_month": "Month 4" },
+  { "num": 7, "name": "Data Analysis with R Programming", "status": "Planned", "pct": 0, "target_month": "Month 5" },
+  { "num": 8, "name": "Google Data Analytics Capstone Project", "status": "Planned", "pct": 0, "target_month": "Month 6" }
+]

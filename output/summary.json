@@ -1,0 +1,24 @@
+{
+  "totalMilestones": 6,
+  "totalSprints": 24,
+  "totalTasks": 953,
+  "totalResources": 12,
+  "totalDailyTargets": 30,
+  "completedDays": 1,
+  "startDate": "2025-11-01",
+  "endDate": "2026-04-30",
+  "tasksByCategory": {
+    "English - Listening": 52,
+    "English - Vocabulary": 104,
+    "English - Grammar": 181,
+    "English - Writing": 129,
+    "English - Speaking": 129,
+    "English - Reading": 52,
+    "English - Review": 306
+  },
+  "tasksByDayType": {
+    "Grammar & Vocab Day": 572,
+    "Session Day": 306,
+    "Challenge Day": 75
+  }
+}
