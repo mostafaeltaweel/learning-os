@@ -5,6 +5,7 @@
  */
 
 import { generate180DaysCurriculum, DayPlan } from './curriculum180Days';
+import { syncTaskToCloud } from './supabaseClient';
 
 export interface UserTask {
   id: string;
@@ -119,6 +120,9 @@ export function saveUserTaskState(tasks: UserTask[]) {
 
     const updated = Array.from(taskMap.values());
     localStorage.setItem(STORAGE_TASKS_KEY, JSON.stringify(updated));
+
+    // Background cloud sync to Supabase (if configured)
+    tasks.forEach((t) => syncTaskToCloud(t));
 
     if (tasks.length > 0) {
       const targetDate = tasks[0].dateAssigned;
